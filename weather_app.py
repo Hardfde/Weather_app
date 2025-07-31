@@ -1,8 +1,10 @@
-import sys
+import os
+from dotenv import load_dotenv
 import requests
-
+load_dotenv()
 def main():
-    api_key = "b461e225dcc7bee4019c267ad50b7109"
+    api_key = os.getenv("NEWS_API_KEY")
+    # api_key = "b461e225dcc7bee4019c267ad50b7109"
     city = input("City: ")
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=imperial"
     response = requests.get(url)
